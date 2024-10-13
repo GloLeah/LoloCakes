@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate')%>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <h1>LoLo Cakes</h1>
+
+    <div id="emoji-container"></div>
+
+    <div class="layout">
+        <div class="image-container">
+            <!-- Image 1 -->
+            <div class="product-image">
+                <img src="/images/cake2.jpg" class="img-fluid" alt="image1">
+            </div>
+            <!-- Image 2 -->
+            <div class="product-image">
+                <img src="/images/cake3.jpg" class="img-fluid" alt="image2">
+            </div>
+        </div>
+
+        <!-- List of all cake flavours (descriptors) and their prices-->
+        <div class="product-table">
+            <h3>Cake Flavours</h3>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Flavor</th>
+                            <th>Price(Ksh)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% products.forEach(product=> { %>
+                            <tr>
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                                <td>
+                                    <%= product.price %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div>
+        <ul>
+            <li><b>Customization and add ons attract extra charges.</b> </li>
+            <li><b>Fondant decorated cakes are charged 1000/= extra per kg</b></li>
+        </ul>
+    </div>

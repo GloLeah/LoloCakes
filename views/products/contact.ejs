@@ -1,0 +1,75 @@
+<% layout('layouts/boilerplate') %>
+    <link rel="stylesheet" href="/stylesheets/contact.css">
+    <h1>For More Enquiries</h1>
+
+    <div class="container">
+        <form action="/products" method="POST" novalidate class="validated-form">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address"
+                    aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="text" id="phoneNumber" placeholder="Enter your phone number" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <h2>You can also reach us via:</h2>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="box">
+                            <i class="fa-solid fa-phone"></i>
+                            <h3 class="card-title">Phone Number</h3>
+                            <p class="card-text">+254707262046</p>
+                        </div>
+                        <div class="box">
+                            <i class="fa-solid fa-envelope"></i>
+                            <h3 class="card-title">Email Address</h3>
+                            <p class="card-text">glorialeah52@gmail.com</p>
+                        </div>
+                        <div class="box">
+                            <i class="fa-solid fa-house"></i>
+                            <h3 class="card-title">Location</h3>
+                            <p class="card-text">Kisumu, Kenya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="box">
+                            <i class="fa-brands fa-instagram"></i>
+                            <p>ms_owiti</p>
+                        </div>
+                        <div class="box">
+                            <i class="fa-brands fa-tiktok"></i>
+                            <p>Cakes By Lolo2</p>
+                        </div>
+                        <div class="box">
+                            <i class="fa-brands fa-facebook"></i>
+                            <p>CakesByLolo</p>
+                        </div>
+                        <div class="box">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <p>+254707262046</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

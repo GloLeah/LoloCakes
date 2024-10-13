@@ -1,0 +1,87 @@
+body {
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    background-color: grey;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/cake1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
+.cover-container {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.nav-link {
+    padding: 0.25rem 0;
+    font-weight: 700;
+}
+
+.navbar-brand {
+    max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+    color: #000;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+p,
+ul {
+    color: pink;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tagline,
+.copyright {
+    color: aqua;
+    font-weight: bolder;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    /* Increase padding for better touch experience */
+    font-size: 1rem;
+    /* Adjust size if necessary */
+}
+
+
+@media (max-width: 768px) {
+    .cover-container {
+        width: 95%;
+        /* Make it take more space on mobile */
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 1.5rem;
+        /* Adjust sizes for mobile */
+    }
+
+    p,
+    ul {
+        font-size: 0.9rem;
+        /* Smaller text for mobile */
+    }
+
+    .nav-link {
+        padding: 0.5rem 0;
+        /* Increase padding for touch devices */
+    }
+
+    .btn {
+        font-size: 1rem;
+        /* Ensure buttons are easy to tap */
+        padding: 0.5rem 1rem;
+        /* Ensure button is large enough */
+    }
+}

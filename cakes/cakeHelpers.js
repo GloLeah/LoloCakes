@@ -1,0 +1,20 @@
+module.exports.descriptors = [
+    'Vanilla',
+    'Passion',
+    'Lemon',
+    'Rich Orange',
+    'Coconut',
+    'French Vanilla',
+    'Blueberry Lemon',
+    'Strawberry',
+    'Pinacolada',
+    'Red Velvet',
+    'Black Forest/White Forest',
+    'Chocolate',
+    'Vanilla Funfetti',
+    'Bubblegum',
+    'Choco Mint',
+    'Lemon Coconut',
+    'Mint',
+    'FruitCake'
+]
