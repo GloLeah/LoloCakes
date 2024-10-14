@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -7,10 +11,14 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
 
+const MongoStore = require('connect-mongo');
+
+const dbUrl = 'mongodb://127.0.0.1:27017/LoloCakes';
+// const dbUrl = process.env.DB_URL;
 
 const products = require('./routes/products');
 
-
+//'mongodb://127.0.0.1:27017/LoloCakes' 
 async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/LoloCakes');
     console.log('Database connected!')
@@ -32,6 +40,14 @@ const sessionCOnfig = {
     resave: false,
     saveUninitialized: true
 }
+
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'thisshouldbeabettersecret!'
+    }
+});
 
 app.use(session(sessionCOnfig))
 app.use(flash());
