@@ -13,8 +13,8 @@ const ExpressError = require('./utils/ExpressError');
 
 const MongoStore = require('connect-mongo');
 
-const dbUrl = 'mongodb://127.0.0.1:27017/LoloCakes';
-// const dbUrl = process.env.DB_URL;
+// const dbUrl = 'mongodb://127.0.0.1:27017/LoloCakes';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/LoloCakes'; // Use environment variable for DB URL;
 
 const products = require('./routes/products');
 
@@ -38,16 +38,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 const sessionCOnfig = {
     secret: 'thisismysacredsecret',
     resave: false,
-    saveUninitialized: true
-}
-
-const store = MongoStore.create({
-    mongoUrl: dbUrl,
-    touchAfter: 24 * 60 * 60,
-    crypto: {
-        secret: 'thisshouldbeabettersecret!'
-    }
-});
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: dbUrl,
+        touchAfter: 24 * 60 * 60,
+        crypto: {
+            secret: 'thisshouldbeabettersecret!'
+        },
+    }),
+};
 
 app.use(session(sessionCOnfig))
 app.use(flash());
@@ -74,6 +73,8 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(3000, () => {
-    console.log('Serving on port 3000')
-})
+// Use the PORT environment variable or default to 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Serving on port ${PORT}`);
+});
