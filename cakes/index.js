@@ -6,7 +6,7 @@ const Product = require('../models/product');
 const prices = [2500, 2500, 2500, 2600, 2500, 2700, 3000, 2500, 3000, 3000, 3000, 2500, 2600, 2600, 2700, 2500, 2700, 3000];
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/LoloCakes');
+    await mongoose.connect('mongodb+srv://Gloh:ApMR0QQvueqgigKW@cluster0.vay9paa.mongodb.net/LoloCakes?retryWrites=true&w=majority');
     console.log('Database connected!')
 }
 main().catch(err => console.log(err));

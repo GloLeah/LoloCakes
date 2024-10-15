@@ -1,21 +1,23 @@
 <% layout('layouts/boilerplate') %>
     <link rel="stylesheet" href="/stylesheets/contact.css">
+
     <h1>For More Enquiries</h1>
 
     <div class="container">
-        <form action="/products" method="POST" novalidate class="validated-form">
+        <form action="/products/contact" method="POST" novalidate class="validated-form">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" placeholder="Enter your name" class="form-control" required>
+                <input type="text" id="name" name="name" placeholder="Enter your name" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email address"
+                <label for="email1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email1" name="email" placeholder="Enter your email address"
                     aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
                 <label for="phoneNumber" class="form-label">Phone Number</label>
-                <input type="text" id="phoneNumber" placeholder="Enter your phone number" class="form-control" required>
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number"
+                    class="form-control" required>
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>

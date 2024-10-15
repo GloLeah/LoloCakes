@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== "development") {
     require('dotenv').config();
 }
 
@@ -10,20 +10,28 @@ const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
-
 const MongoStore = require('connect-mongo');
 
 // const dbUrl = 'mongodb://127.0.0.1:27017/LoloCakes';
-const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/LoloCakes'; // Use environment variable for DB URL;
+
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/LoloCakes';
+// console.log('Using MongoDB URL:', dbUrl);
+
 
 const products = require('./routes/products');
 
 //'mongodb://127.0.0.1:27017/LoloCakes' 
+
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/LoloCakes');
-    console.log('Database connected!')
+    try {
+        await mongoose.connect(dbUrl);
+        console.log('Database connected!');
+    } catch (err) {
+        console.error('Database connection error:', err);
+    }
 }
-main().catch(err => console.log(err));
+main();
+
 
 const app = express();
 
@@ -41,6 +49,7 @@ const sessionCOnfig = {
     saveUninitialized: true,
     store: MongoStore.create({
         mongoUrl: dbUrl,
+        collectionName: 'sessions', // Specify a separate collection for sessions
         touchAfter: 24 * 60 * 60,
         crypto: {
             secret: 'thisshouldbeabettersecret!'
@@ -55,9 +64,9 @@ app.use((req, res, next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
-})
+});
 
-app.use('/products', products)
+app.use('/products', products);
 
 app.get('/', (req, res) => {
     res.render('home')
