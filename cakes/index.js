@@ -9,6 +9,7 @@ async function main() {
     await mongoose.connect('mongodb+srv://Gloh:ApMR0QQvueqgigKW@cluster0.vay9paa.mongodb.net/LoloCakes?retryWrites=true&w=majority');
     console.log('Database connected!')
 }
+//mongodb+srv://Gloh:<db_password>@cluster0.vay9paa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 main().catch(err => console.log(err));
 
 
